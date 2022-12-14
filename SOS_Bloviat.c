@@ -20,10 +20,10 @@ int cek_papan(int pilihan_papan); //Modul untuk mengecek apakah papan sudah teri
 void papan_skor(Pemain player1, Pemain player2); //Menampilkan Skor player diatas papan permainan(udah)
 void gotoxy(int x, int y); //Modul untuk meletakkan kursor di titik koordinat yang ditentukkan(udah)
 void tampilan_akhir(Pemain player1, Pemain player2); //Modul untuk memilih tampilan akhir yang tepat (menang atau draw)(udah)
-void display_loading(int bg, int fg, int panjang, int delay, int simbol[20]); //
-void loading();
-void display_menang(Pemain player, int *opsi_udahan); //Menampilkan Tampilan Menang pada layar dan membaca opsi udahan(udah)
-void display_draw(int *opsi_udahan); //Menampilkan Tampilan draw pada layar dan membaca opsi udahan(udah)
+void display_loading(int bg, int fg, int panjang, int delay, int simbol[20]); //Modul menampilkan tampilan loading ppada layar.
+void loading(); // Modul untuk memanggil modul display_loading dan menempatkannya di sebuah titik koordinat.
+void display_menang(Pemain player, int *opsi_udahan); //Menampilkan Tampilan Menang pada layar dan membaca opsi udahan.
+void display_draw(int *opsi_udahan); //Menampilkan Tampilan draw pada layar dan membaca opsi udahan.
 
 // Modul Waktu Bermain
 int waktu_awal();
@@ -478,9 +478,9 @@ int input_sos(Pemain player1, Pemain player2, int *giliran, int pilihan_papan){
 	double waktuIsi;
 	waktu = waktu_awal();
 	if(*giliran == 1){
-					printf("\n\n\xc Giliran : %s\n", player1.nama);
+					printf("\n\n Giliran : %s\n", player1.nama);
 				}else{
-					printf("\n\n\xc Giliran : %s\n", player2.nama);
+					printf("\n\n Giliran : %s\n", player2.nama);
 	}
 	do{
 		fflush(stdin);
@@ -505,9 +505,9 @@ int input_sos(Pemain player1, Pemain player2, int *giliran, int pilihan_papan){
 			waktuIsi = ((double)waktu)/CLOCKS_PER_SEC;
 			if (waktuIsi<=15){
 				if(*giliran == 1){
-					printf("\n\n\xc Giliran : %s\n\xdb Baris : %d\n\xdb Kolom : %d\n\xaf\xaf S/O? ", player1, baris, kolom);
+					printf("\n\n Giliran : %s\n\xdb Baris : %d\n\xdb Kolom : %d\n\xaf\xaf S/O? ", player1, baris, kolom);
 				}else{
-					printf("\n\n\xc Giliran : %s\n\xdb Baris : %d\n\xdb Kolom : %d\n\xaf\xaf S/O? ", player2, baris, kolom);
+					printf("\n\n Giliran : %s\n\xdb Baris : %d\n\xdb Kolom : %d\n\xaf\xaf S/O? ", player2, baris, kolom);
 				}
 				char ch;
 				scanf(" %c", &ch);
@@ -540,20 +540,20 @@ F.S : Kalimat SOS yang dibentuk pada papan sudah terdeteksi
 =========================================================================================*/
 int cari_sos(){
 	if (papan[baris - 1][kolom - 1] == 'S') {
-		if (papan[baris - 3][kolom - 3] == 'S' && papan[baris - 2][kolom - 2] == 'O') return 1;
-		if (papan[baris - 3][kolom - 1] == 'S' && papan[baris - 2][kolom - 1] == 'O') return 1;
-		if (papan[baris - 3][kolom + 1] == 'S' && papan[baris - 2][kolom] == 'O') return 1;
-		if (papan[baris - 1][kolom - 3] == 'S' && papan[baris - 1][kolom - 2] == 'O') return 1;
-		if (papan[baris - 1][kolom + 1] == 'S' && papan[baris - 1][kolom] == 'O') return 1;
-		if (papan[baris + 1][kolom - 3] == 'S' && papan[baris][kolom - 2] == 'O') return 1;
-		if (papan[baris + 1][kolom - 1] == 'S' && papan[baris][kolom - 1] == 'O') return 1;
-		if (papan[baris + 1][kolom + 1] == 'S' && papan[baris][kolom] == 'O') return 1;
+		if (papan[baris - 3][kolom - 3] == 'S' && papan[baris - 2][kolom - 2] == 'O') return 1; //diagonal kiri atas
+		if (papan[baris - 3][kolom - 1] == 'S' && papan[baris - 2][kolom - 1] == 'O') return 1; //vertikal atas
+		if (papan[baris - 3][kolom + 1] == 'S' && papan[baris - 2][kolom] == 'O') return 1; //diagonal kanan atas
+		if (papan[baris - 1][kolom - 3] == 'S' && papan[baris - 1][kolom - 2] == 'O') return 1; //horizontal kiri
+		if (papan[baris - 1][kolom + 1] == 'S' && papan[baris - 1][kolom] == 'O') return 1; //horizontal kanan
+		if (papan[baris + 1][kolom - 3] == 'S' && papan[baris][kolom - 2] == 'O') return 1; //diagonal kiri bawah
+		if (papan[baris + 1][kolom - 1] == 'S' && papan[baris][kolom - 1] == 'O') return 1; //vertikal bawah
+		if (papan[baris + 1][kolom + 1] == 'S' && papan[baris][kolom] == 'O') return 1; //diagonal kanan bawah
 	}
 	else {
-		if (papan[baris - 2][kolom - 2] == 'S' && papan[baris][kolom] == 'S') return 1;
-		if (papan[baris - 2][kolom - 1] == 'S' && papan[baris][kolom - 1] == 'S') return 1;
-		if (papan[baris - 2][kolom] == 'S' && papan[baris][kolom - 2] == 'S') return 1;
-		if (papan[baris - 1][kolom - 2] == 'S' && papan[baris - 1][kolom] == 'S') return 1;
+		if (papan[baris - 2][kolom - 2] == 'S' && papan[baris][kolom] == 'S') return 1; //diagonal kiri(\)
+		if (papan[baris - 2][kolom - 1] == 'S' && papan[baris][kolom - 1] == 'S') return 1; //vertikal
+		if (papan[baris - 2][kolom] == 'S' && papan[baris][kolom - 2] == 'S') return 1; //diagonal kanan (/)
+		if (papan[baris - 1][kolom - 2] == 'S' && papan[baris - 1][kolom] == 'S') return 1; //horizontal
 	}
 	return 0;
 }
