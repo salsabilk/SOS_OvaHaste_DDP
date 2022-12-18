@@ -9,7 +9,25 @@ typedef struct {
 	int skor;
 }Pemain;
 
-void menu_awal(int *opsi); //Menampilkan UI Menu Awal dan membaca opsi menu di awal permainan untuk memilih apakah ingin main atau cara bermain, atau keluar(udah)
+typedef struct {
+	char kotak[7][7];
+}Papan;
+
+typedef struct {
+	Pemain player1, player2;
+	Pemain winner;
+	Pemain draw;
+	Pemain papan;
+}Permainan;
+
+void menu_awal(int *opsi); 
+/*Deskripsi Modul
+Prosedure
+Menampilkan UI Menu Awal dan membaca opsi menu di awal permainan untuk memilih apakah ingin main atau cara bermain, atau keluar
+I.S : Menu awal tidak tampil
+F.S : Menu awal tampil di layar dengan format
+=========================================================================================*/
+
 void skuy_main(); //Modul bertujuan untuk memanggil modul-modul lain untuk menjalankan permainan SOS(udah)
 void display_tutor(int *opsi_tutor, int *opsi); //Menampilkan UI Tata Cara Bermain dan membaca opsi tutor untuk kembali ke menu awal(udah)
 void display_udahan(int *opsi_udahan); //Menampilkan UI keluar jika pemain memilih untuk keluar permainan dan membaca opsi keluar(udah)
@@ -35,7 +53,7 @@ int input_sos(Pemain player1, Pemain player2, int *giliran, int pilihan_papan); 
 int cari_sos(); //Modul untuk mencari hasil SOS dari sebuah papan permainan(udah)
 
 /*VARIABEL GLOBAL*/ 
-char papan[10][10]; 
+char papan[10][10];
 int baris, kolom; // untuk menyimpan baris dan kolom yang dipilih pemain
 
 int main(){
@@ -52,7 +70,7 @@ int main(){
    				skuy_main();
    				break;
         	case 2:
-   				display_tutor(&opsi_tutor, &opsi);
+   				display_tutor(&opsi_tutor, &opsi);   				
    				switch(opsi_tutor){
 				default:
 	      		menu_awal(&opsi);
@@ -361,6 +379,7 @@ void pilih_papan(int *ukuran){
     printf("\t\t\xb3    [3] 7 x 7                                                                        \xb3\n");
     printf("\t\t\xb3_____________________________________________________________________________________\xb3\n\n");
     printf("\t\t Mau Pilih Yang Mana Nih? : "); scanf("%d",&*ukuran);
+    
 }
 
 /*Deskripsi Modul
@@ -428,10 +447,10 @@ F.S : Tampilan skor sudah tampil kelayar
 void papan_skor(Pemain player1, Pemain player2) {
 	gotoxy(0,0);
 	gotoxy(13,1);  printf("VS");
-	gotoxy(1,1); printf("%s\n", player1.nama);
-	gotoxy(20,1); printf("%s\n", player2.nama);
-	gotoxy(1,2); printf("%d\n", player1.skor);
-	gotoxy(20,2); printf("%d\n", player2.skor);
+	gotoxy(1,1);   printf("%s\n", player1.nama);
+	gotoxy(20,1);  printf("%s\n", player2.nama);
+	gotoxy(1,2);   printf("%d\n", player1.skor);
+	gotoxy(20,2);  printf("%d\n", player2.skor);
 }
 
 /*Deskripsi Modul
@@ -483,7 +502,6 @@ int input_sos(Pemain player1, Pemain player2, int *giliran, int pilihan_papan){
 					printf("\n\n Giliran : %s\n", player2.nama);
 	}
 	do{
-		fflush(stdin);
 		printf("\n\n\xdb Baris : ");
 		scanf("%d", &baris);
 		printf("\n\n\xdb Kolom : ");
@@ -540,14 +558,14 @@ F.S : Kalimat SOS yang dibentuk pada papan sudah terdeteksi
 =========================================================================================*/
 int cari_sos(){
 	if (papan[baris - 1][kolom - 1] == 'S') {
-		if (papan[baris - 3][kolom - 3] == 'S' && papan[baris - 2][kolom - 2] == 'O') return 1; //diagonal kiri atas
-		if (papan[baris - 3][kolom - 1] == 'S' && papan[baris - 2][kolom - 1] == 'O') return 1; //vertikal atas
-		if (papan[baris - 3][kolom + 1] == 'S' && papan[baris - 2][kolom] == 'O') return 1; //diagonal kanan atas
-		if (papan[baris - 1][kolom - 3] == 'S' && papan[baris - 1][kolom - 2] == 'O') return 1; //horizontal kiri
-		if (papan[baris - 1][kolom + 1] == 'S' && papan[baris - 1][kolom] == 'O') return 1; //horizontal kanan
-		if (papan[baris + 1][kolom - 3] == 'S' && papan[baris][kolom - 2] == 'O') return 1; //diagonal kiri bawah
-		if (papan[baris + 1][kolom - 1] == 'S' && papan[baris][kolom - 1] == 'O') return 1; //vertikal bawah
-		if (papan[baris + 1][kolom + 1] == 'S' && papan[baris][kolom] == 'O') return 1; //diagonal kanan bawah
+		if (papan[baris - 3][kolom - 3] == 'S' && papan[baris - 2][kolom - 2] == 'O'){return 1;} //diagonal kiri atas
+		if (papan[baris - 3][kolom - 1] == 'S' && papan[baris - 2][kolom - 1] == 'O'){return 1;} //vertikal atas
+		if (papan[baris - 3][kolom + 1] == 'S' && papan[baris - 2][kolom] == 'O'){return 1;} //diagonal kanan atas
+		if (papan[baris - 1][kolom - 3] == 'S' && papan[baris - 1][kolom - 2] == 'O'){return 1;} //horizontal kiri
+		if (papan[baris - 1][kolom + 1] == 'S' && papan[baris - 1][kolom] == 'O'){return 1;} //horizontal kanan
+		if (papan[baris + 1][kolom - 3] == 'S' && papan[baris][kolom - 2] == 'O'){return 1;} //diagonal kiri bawah
+		if (papan[baris + 1][kolom - 1] == 'S' && papan[baris][kolom - 1] == 'O'){return 1;} //vertikal bawah
+		if (papan[baris + 1][kolom + 1] == 'S' && papan[baris][kolom] == 'O'){return 1;} //diagonal kanan bawah
 	}
 	else {
 		if (papan[baris - 2][kolom - 2] == 'S' && papan[baris][kolom] == 'S') return 1; //diagonal kiri(\)
