@@ -28,29 +28,157 @@ I.S : Menu awal tidak tampil
 F.S : Menu awal tampil di layar dengan format
 =========================================================================================*/
 
-void skuy_main(); //Modul bertujuan untuk memanggil modul-modul lain untuk menjalankan permainan SOS(udah)
-void display_tutor(int *opsi_tutor, int *opsi); //Menampilkan UI Tata Cara Bermain dan membaca opsi tutor untuk kembali ke menu awal(udah)
-void display_udahan(int *opsi_udahan); //Menampilkan UI keluar jika pemain memilih untuk keluar permainan dan membaca opsi keluar(udah)
-void pilih_papan(int *ukuran); //Menampilkan UI memilih papan dimensi permainan dan membaca opsi ukuran papan(udah)
-void gambar_papan(int pilihan_papan); //Modul untuk membuat dan menampilkan papan permainan sesuai dengan papan dimensi yang dipilih(udah)
-void mengosongkan_papan(int pilihan_papan); //Modul untuk mengisi papan dengan space (papan tidak emiliki isi)(udah)
-int cek_papan(int pilihan_papan); //Modul untuk mengecek apakah papan sudah terisi penuh atau belum (udah)
-void papan_skor(Pemain player1, Pemain player2); //Menampilkan Skor player diatas papan permainan(udah)
-void gotoxy(int x, int y); //Modul untuk meletakkan kursor di titik koordinat yang ditentukkan(udah)
-void tampilan_akhir(Pemain player1, Pemain player2); //Modul untuk memilih tampilan akhir yang tepat (menang atau draw)(udah)
-void display_loading(int bg, int fg, int panjang, int delay, int simbol[20]); //Modul menampilkan tampilan loading ppada layar.
-void loading(); // Modul untuk memanggil modul display_loading dan menempatkannya di sebuah titik koordinat.
-void display_menang(Pemain player, int *opsi_udahan); //Menampilkan Tampilan Menang pada layar dan membaca opsi udahan.
-void display_draw(int *opsi_udahan); //Menampilkan Tampilan draw pada layar dan membaca opsi udahan.
+void skuy_main(); 
+/*Deskripsi Modul
+Prosedure
+Modul bertujuan untuk memanggil modul-modul lain untuk menjalankan permainan SOS
+I.S : Proses permainan SOS belum bisa dijalankan
+F.S : Proses permainan SOS sudah bisa dijalankan
+=========================================================================================*/
 
-// Modul Waktu Bermain
+void display_tutor(int *opsi_tutor, int *opsi); 
+/*Deskripsi Modul
+Prosedure
+Menampilkan UI Tata Cara Bermain dan membaca opsi tutor untuk kembali ke menu awal
+I.S : UI Tata Cara Bermain belum tampil
+F.S : UI Tata Cara bermain tampil dan opsi untuk kembali terbaca
+=========================================================================================*/
+
+void display_udahan(int *opsi_udahan); 
+/*Deskripsi Modul
+Prosedure
+Menampilkan UI keluar jika pemain memilih untuk keluar permainan dan membaca opsi keluar
+I.S : Menu tampilan keluar belum tampil
+F.S : Menu tampilan keluar tampil dan opsi udahan terbaca
+=========================================================================================*/
+
+void pilih_papan(int *ukuran); 
+/*Deskripsi Modul
+Prosedure
+Menampilkan UI memilih papan dimensi permainan dan membaca opsi ukuran papan
+I.S : Tampilan Menu Memilih Papan belum muncul ke layar
+F.S : Tampilan Menu memilih papan tampil di layar dan pilihan ukuran papan terbaca 
+=========================================================================================*/
+
+void gambar_papan(int pilihan_papan); 
+/*Deskripsi Modul
+Prosedure
+Membuat dan menampilkan papan permainan sesuai dengan papan dimensi yang dipilih(udah)
+I.S : gambar papan permainan belum tampil pada layar
+F.S : gambar papan permainan sudah tampil pada layar
+=========================================================================================*/
+
+void mengosongkan_papan(int pilihan_papan); 
+/*Deskripsi Modul
+Prosedure
+Modul untuk mengisi papan dengan space (papan tidak emiliki isi)
+I.S : Isi dari papan belum diketahui
+F.S : Papan terisi dengan space
+=========================================================================================*/
+
+int cek_papan(int pilihan_papan); 
+/*Deskripsi Modul
+Function
+Modul untuk mengecek apakah papan sudah terisi penuh atau belum
+I.S : Bagian papan yang sudah terisi dan belum terisi belum diketahui
+F.S : Bagian papan yang sudah terisi dan belum terisi diketahui 
+=========================================================================================*/
+
+void papan_skor(Pemain player1, Pemain player2); 
+/*Deskripsi Modul
+Prosedure
+Menampilkan Skor player diatas papan permainan
+I.S : Tampilan skor belum tampil kelayar
+F.S : Tampilan skor sudah tampil kelayar
+=========================================================================================*/
+
+void gotoxy(int x, int y); 
+/*Deskripsi Modul
+Prosedure
+Modul untuk meletakkan kursor di titik koordinat yang ditentukkan
+I.S : Kursor belum diletakkan pada titik koordinat yang diinginkan
+F.S : Kursor sudah diletakkan pada titik koordinat yang diinginkan
+=========================================================================================*/
+
+void tampilan_akhir(Pemain player1, Pemain player2); 
+/*Deskripsi Modul
+Prosedure
+Modul untuk memilih tampilan akhir yang tepat (menang atau draw)
+I.S : Permainan belum ada hasil akhirnya
+F.S : Permainan diketahui hasil akhirnya dan tampilan hasil akhir yang sesuai akan muncul pada layar
+=========================================================================================*/
+
+void display_loading(int bg, int fg, int panjang, int delay, int simbol[20]); 
+/*Deskripsi Modul
+Prosedure
+Menampilkan UI keluar jika pemain memilih untuk keluar permainan dan membaca opsi keluar
+I.S : Menu tampilan keluar belum tampil
+F.S : Menu tampilan keluar tampil dan opsi udahan terbaca
+=========================================================================================*/
+
+void loading(); 
+/*Deskripsi Modul
+Prosedure
+Menampilkan UI keluar jika pemain memilih untuk keluar permainan dan membaca opsi keluar
+I.S : Menu tampilan keluar belum tampil
+F.S : Menu tampilan keluar tampil dan opsi udahan terbaca
+=========================================================================================*/
+
+void display_menang(Pemain player, int *opsi_udahan); 
+/*Deskripsi Modul
+Prosedure
+Menampilkan Tampilan Menang pada layar dan membaca opsi udahan
+I.S : Tampilan Menang belum muncul ke layar
+F.S : Tampilan Menang tampil di layar dan pilihan opsi udahan terbaca 
+=========================================================================================*/
+
+void display_draw(int *opsi_udahan); 
+/*Deskripsi Modul
+Prosedure
+Menampilkan Tampilan draw pada layar dan membaca opsi udahan
+I.S : Tampilan Draw belum muncul ke layar
+F.S : Tampilan draw tampil di layar dan pilihan opsi udahan terbaca
+=========================================================================================*/
+
 int waktu_awal();
-int waktu_akhir();
+/*Deskripsi Modul
+Fungsi
+//Modul untuk menampilkan tampilan menu Nama dan membaca nama player 1 dan player 2
+I.S : Batas waktu bermain tiap pemain tidak dibatasi
+F.S : Batas waktu bermain pemain dibatasi
+=========================================================================================*/
 
-//Modul Bermain Player VS Player
-void display_nama(Pemain *player1, Pemain *player2); //Modul untuk menampilkan tampilan menu Nama dan membaca nama player 1 dan player 2(udah)
+int waktu_akhir();
+/*Deskripsi Modul
+Fungsi
+//Modul untuk menampilkan tampilan menu Nama dan membaca nama player 1 dan player 2
+I.S : Batas waktu bermain tiap pemain tidak dibatasi
+F.S : Batas waktu bermain pemain dibatasi
+=========================================================================================*/
+
+void display_nama(Pemain *player1, Pemain *player2); 
+/*Deskripsi Modul
+Prosedure
+//Modul untuk menampilkan tampilan menu Nama dan membaca nama player 1 dan player 2
+I.S : Menu tampilan Nama belum tampil
+F.S : Menu tampilan nama tampil dan nama kedua pemain sudah terbaca
+=========================================================================================*/
+
 int input_sos(Pemain player1, Pemain player2, int *giliran, int pilihan_papan); //Modul untuk menginputkan huruf S atau O ke papan(udah)
+/*Deskripsi Modul
+Function
+Modul untuk menginputkan huruf S atau O ke papan
+I.S : Huruf S atau O belum tampil pada baris dan kolom yang diinginkan pada papan permainan
+F.S : Huruf S atau O sudah tampil pada baris dan kolom yang diinginkan pada papan permainan
+=========================================================================================*/
+
 int cari_sos(); //Modul untuk mencari hasil SOS dari sebuah papan permainan(udah)
+/*Deskripsi Modul
+Function
+//Modul untuk mencari kalimat SOS dari sebuah papan permainan
+I.S : Kalimat SOS yang dibentuk pada papan belum terdeteksi
+F.S : Kalimat SOS yang dibentuk pada papan sudah terdeteksi
+=========================================================================================*/
 
 /*VARIABEL GLOBAL*/ 
 char papan[10][10];
@@ -426,12 +554,24 @@ void gotoxy(int x, int y){
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
 }
 
+/*Deskripsi Modul
+Fungsi
+//Modul untuk menampilkan tampilan menu Nama dan membaca nama player 1 dan player 2
+I.S : Batas waktu bermain tiap pemain tidak dibatasi
+F.S : Batas waktu bermain pemain dibatasi
+=========================================================================================*/
 int waktu_awal(){
 	clock_t time;
 	time = clock();
 	return time;
 }
 
+/*Deskripsi Modul
+Fungsi
+//Modul untuk menampilkan tampilan menu Nama dan membaca nama player 1 dan player 2
+I.S : Batas waktu bermain tiap pemain tidak dibatasi
+F.S : Batas waktu bermain pemain dibatasi
+=========================================================================================*/
 int waktu_akhir(){
 	clock_t time;
 	time = clock();
