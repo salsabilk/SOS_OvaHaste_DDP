@@ -9,23 +9,12 @@ typedef struct {
 	int skor;
 }Pemain;
 
-typedef struct {
-	char kotak[7][7];
-}Papan;
-
-typedef struct {
-	Pemain player1, player2;
-	Pemain winner;
-	Pemain draw;
-	Pemain papan;
-}Permainan;
-
-void menu_awal(int *opsi); 
+void menu_awal(); 
 /*Deskripsi Modul
 Prosedure
-Menampilkan UI Menu Awal dan membaca opsi menu di awal permainan untuk memilih apakah ingin main atau cara bermain, atau keluar
+Menampilkan UI Menu Awal 
 I.S : Menu awal tidak tampil
-F.S : Menu awal tampil di layar dengan format
+F.S : Menu awal tampil di layar 
 =========================================================================================*/
 
 void skuy_main(); 
@@ -36,34 +25,34 @@ I.S : Proses permainan SOS belum bisa dijalankan
 F.S : Proses permainan SOS sudah bisa dijalankan
 =========================================================================================*/
 
-void display_tutor(int *opsi_tutor, int *opsi); 
+void display_tutor(); 
 /*Deskripsi Modul
 Prosedure
-Menampilkan UI Tata Cara Bermain dan membaca opsi tutor untuk kembali ke menu awal
+Menampilkan UI Tata Cara Bermain 
 I.S : UI Tata Cara Bermain belum tampil
 F.S : UI Tata Cara bermain tampil dan opsi untuk kembali terbaca
 =========================================================================================*/
 
-void display_udahan(int *opsi_udahan); 
+void display_udahan(); 
 /*Deskripsi Modul
 Prosedure
-Menampilkan UI keluar jika pemain memilih untuk keluar permainan dan membaca opsi keluar
+Menampilkan UI keluar jika pemain memilih untuk keluar permainan
 I.S : Menu tampilan keluar belum tampil
-F.S : Menu tampilan keluar tampil dan opsi udahan terbaca
+F.S : Menu tampilan keluar tampil di layar
 =========================================================================================*/
 
-void pilih_papan(int *ukuran); 
+void display_arena(); 
 /*Deskripsi Modul
 Prosedure
-Menampilkan UI memilih papan dimensi permainan dan membaca opsi ukuran papan
+Menampilkan UI memilih papan dimensi permainan 
 I.S : Tampilan Menu Memilih Papan belum muncul ke layar
-F.S : Tampilan Menu memilih papan tampil di layar dan pilihan ukuran papan terbaca 
+F.S : Tampilan Menu memilih papan tampil di layar 
 =========================================================================================*/
 
 void gambar_papan(int pilihan_papan); 
 /*Deskripsi Modul
 Prosedure
-Membuat dan menampilkan papan permainan sesuai dengan papan dimensi yang dipilih(udah)
+Membuat dan menampilkan papan permainan sesuai dengan papan dimensi yang dipilih
 I.S : gambar papan permainan belum tampil pada layar
 F.S : gambar papan permainan sudah tampil pada layar
 =========================================================================================*/
@@ -100,31 +89,23 @@ I.S : Kursor belum diletakkan pada titik koordinat yang diinginkan
 F.S : Kursor sudah diletakkan pada titik koordinat yang diinginkan
 =========================================================================================*/
 
-void tampilan_akhir(Pemain player1, Pemain player2); 
+void loading(int bg, int fg, int panjang, int delay, int simbol[20]); 
 /*Deskripsi Modul
 Prosedure
-Modul untuk memilih tampilan akhir yang tepat (menang atau draw)
-I.S : Permainan belum ada hasil akhirnya
-F.S : Permainan diketahui hasil akhirnya dan tampilan hasil akhir yang sesuai akan muncul pada layar
+Modul menampilkan tampilan awal sebelum pemain masuk ke menu awal
+I.S : Tampilan loading belum dibuat
+F.S : Tampilan loading sudah dibuat
 =========================================================================================*/
 
-void display_loading(int bg, int fg, int panjang, int delay, int simbol[20]); 
+void display_loading(); 
 /*Deskripsi Modul
 Prosedure
-Menampilkan UI keluar jika pemain memilih untuk keluar permainan dan membaca opsi keluar
-I.S : Menu tampilan keluar belum tampil
-F.S : Menu tampilan keluar tampil dan opsi udahan terbaca
+Modul untuk menampilkan UI Loading
+I.S : Loading belum tampil ke layar
+F.S : Loading sudah tampil ke layar
 =========================================================================================*/
 
-void loading(); 
-/*Deskripsi Modul
-Prosedure
-Menampilkan UI keluar jika pemain memilih untuk keluar permainan dan membaca opsi keluar
-I.S : Menu tampilan keluar belum tampil
-F.S : Menu tampilan keluar tampil dan opsi udahan terbaca
-=========================================================================================*/
-
-void display_menang(Pemain player, int *opsi_udahan); 
+void display_menang(Pemain player); 
 /*Deskripsi Modul
 Prosedure
 Menampilkan Tampilan Menang pada layar dan membaca opsi udahan
@@ -132,7 +113,7 @@ I.S : Tampilan Menang belum muncul ke layar
 F.S : Tampilan Menang tampil di layar dan pilihan opsi udahan terbaca 
 =========================================================================================*/
 
-void display_draw(int *opsi_udahan); 
+void display_draw(); 
 /*Deskripsi Modul
 Prosedure
 Menampilkan Tampilan draw pada layar dan membaca opsi udahan
@@ -143,7 +124,7 @@ F.S : Tampilan draw tampil di layar dan pilihan opsi udahan terbaca
 int waktu_awal();
 /*Deskripsi Modul
 Fungsi
-//Modul untuk menampilkan tampilan menu Nama dan membaca nama player 1 dan player 2
+//Modul untuk mendeklarasikan waktu awal penginputan.
 I.S : Batas waktu bermain tiap pemain tidak dibatasi
 F.S : Batas waktu bermain pemain dibatasi
 =========================================================================================*/
@@ -151,12 +132,12 @@ F.S : Batas waktu bermain pemain dibatasi
 int waktu_akhir();
 /*Deskripsi Modul
 Fungsi
-//Modul untuk menampilkan tampilan menu Nama dan membaca nama player 1 dan player 2
+//Modul untuk mendeklarasikan waktu akhir.
 I.S : Batas waktu bermain tiap pemain tidak dibatasi
 F.S : Batas waktu bermain pemain dibatasi
 =========================================================================================*/
 
-void display_nama(Pemain *player1, Pemain *player2); 
+void display_nama(); 
 /*Deskripsi Modul
 Prosedure
 //Modul untuk menampilkan tampilan menu Nama dan membaca nama player 1 dan player 2
@@ -164,7 +145,7 @@ I.S : Menu tampilan Nama belum tampil
 F.S : Menu tampilan nama tampil dan nama kedua pemain sudah terbaca
 =========================================================================================*/
 
-int input_sos(Pemain player1, Pemain player2, int *giliran, int pilihan_papan); //Modul untuk menginputkan huruf S atau O ke papan(udah)
+int input_sos(Pemain player1, Pemain player2, int *giliran, int pilihan_papan); 
 /*Deskripsi Modul
 Function
 Modul untuk menginputkan huruf S atau O ke papan
@@ -172,7 +153,7 @@ I.S : Huruf S atau O belum tampil pada baris dan kolom yang diinginkan pada papa
 F.S : Huruf S atau O sudah tampil pada baris dan kolom yang diinginkan pada papan permainan
 =========================================================================================*/
 
-int cari_sos(); //Modul untuk mencari hasil SOS dari sebuah papan permainan(udah)
+int cari_sos(); 
 /*Deskripsi Modul
 Function
 //Modul untuk mencari kalimat SOS dari sebuah papan permainan
@@ -180,63 +161,60 @@ I.S : Kalimat SOS yang dibentuk pada papan belum terdeteksi
 F.S : Kalimat SOS yang dibentuk pada papan sudah terdeteksi
 =========================================================================================*/
 
+void memilih_opsi_menu();
+/*Deskripsi Modul
+Procedure
+//Modul untuk memilih opsi dari menu utama untuk menuju fitur atau pilihan yang diinginkan 
+I.S : Pilihan untuk menu berikutnya belum terpilih
+F.S : Opsi terpilih dan melanjutkan sesuai pilihan yang diinginkan
+=========================================================================================*/
+
+void cek_opsi_udahan(int opsi_udahan);
+/*Deskripsi Modul
+Procedure
+//Modul untuk memilih opsi udahan sesuai dengan hasil bacaan "opsi_udahan"
+I.S : Pilihan untuk menuju opsi berikutnya belum disesuaikan
+F.S : Program melanjutkan ke modul yang dipilih (keluar permainan atau kembali ke menu awal) 
+=========================================================================================*/
+
+int memilih_opsi_papan();
+/*Deskripsi Modul
+Function
+//Modul untuk memilih papan sesuai dengan dimensi papan yang diinginkan
+I.S : Dimensi papan belum terpilih
+F.S : Dimensi papan sudah terpilih
+=========================================================================================*/
+
+int membandingkan_nilai(Pemain player1, Pemain player2);
+/*Deskripsi Modul
+Funtion
+//Modul untuk membandingkan skor hasil permainan untuk menentukkan pemenang
+I.S : Skor hasil permainan belum dibandingkan
+F.S : Skor hasil permainan sudah dibandingkan dan hasil permainan dapat ditentukkan
+=========================================================================================*/
+
 /*VARIABEL GLOBAL*/ 
 char papan[10][10];
 int baris, kolom; // untuk menyimpan baris dan kolom yang dipilih pemain
 
 int main(){
-	Pemain player1, player2;
-	int opsi;
-	int ukuran;
-	int opsi_tutor;
-	int opsi_udahan;
-	loading();
-	menu_awal(&opsi);
-	do{
-		switch(opsi){
-   			case 1:
-   				skuy_main();
-   				break;
-        	case 2:
-   				display_tutor(&opsi_tutor, &opsi);   				
-   				switch(opsi_tutor){
-				default:
-	      		menu_awal(&opsi);
-	     			break;
-				}
-   				break;
-			case 3:
-   				display_udahan(&opsi_udahan);
-				switch(opsi_udahan){
-   					case 1:	
-   					menu_awal(&opsi);
-   					break;
-  					default:
-  					exit(0);
-   					break;
-				}	
-   				break;	
-	   		 default:
-   			 	printf("\t\t\t\t PILIHANMU TIDAK TEPAT, Klik Enter Untuk Mengulang!");
-      		 	getch();
-      		 	menu_awal(&opsi);
-			}
-	} while (opsi != 1 || opsi != 2 || opsi != 3);
-	return 0;
+	display_loading();
+	menu_awal();
+	memilih_opsi_menu();
 }
 
 /*Deskripsi Modul
 Prosedure
-Menampilkan UI keluar jika pemain memilih untuk keluar permainan dan membaca opsi keluar
-I.S : Menu tampilan keluar belum tampil
-F.S : Menu tampilan keluar tampil dan opsi udahan terbaca
+Menampilkan UI Loading
+I.S : Loading belum tampil ke layar
+F.S : Loading sudah tampil ke layar
 =========================================================================================*/
-void loading(){
+void display_loading(){
 	int bg, fg, delay, panjang;
 	int simbol[20] = {2,3,4,5,6,14,16,22,35,36,62,64,158,174,175,176,177,178,219};
 	system("cls");
    	system("color E0"); 
-   	display_loading(20 - 1, 19 - 1, 30 , 1, simbol);
+   	loading(20 - 1, 19 - 1, 30 , 1, simbol);
    	gotoxy(48,10);
 }
 
@@ -246,7 +224,7 @@ Menampilkan UI keluar jika pemain memilih untuk keluar permainan dan membaca ops
 I.S : Menu tampilan keluar belum tampil
 F.S : Menu tampilan keluar tampil dan opsi udahan terbaca
 =========================================================================================*/
-void display_loading(int bg, int fg, int panjang, int delay, int simbol[20]){
+void loading(int bg, int fg, int panjang, int delay, int simbol[20]){
  int k, l;
    for (k=0; k<=panjang; k+=2)
    {
@@ -264,11 +242,11 @@ void display_loading(int bg, int fg, int panjang, int delay, int simbol[20]){
 
 /*Deskripsi Modul
 Prosedure
-Menampilkan UI Menu Awal dan membaca opsi menu di awal permainan untuk memilih apakah ingin main atau cara bermain, atau keluar
+Menampilkan UI Menu Awal 
 I.S : Menu awal tidak tampil
-F.S : Menu awal tampil di layar dengan format
+F.S : Menu awal tampil di layar
 =========================================================================================*/
-void menu_awal(int *opsi){
+void menu_awal(){
 	system("cls");
 	system("color E0"); 
 	printf("\n\n\n\n\n\n");
@@ -289,7 +267,7 @@ void menu_awal(int *opsi){
     printf("\t\t\xb3    [2] TUTOR?                                                                       \xb3\n");
     printf("\t\t\xb3    [3] UDAHAN                                                    CREATED BY BLOVIAT \xb3\n"); 
     printf("\t\t\xb3_____________________________________________________________________________________\xb3\n\n");
-	printf("\t\t MAU APA? "); scanf(" %d",&*opsi); 	
+	printf("\t\t MAU APA? "); 	
 }
 
 /*Deskripsi Modul
@@ -300,28 +278,20 @@ F.S : Proses permainan SOS sudah bisa dijalankan
 =========================================================================================*/
 void skuy_main(){
 	int giliran = 1;
-	int ukuran;
 	int pilihan_papan;
+	int opsi_udahan;
+	int hasil;
 	Pemain player1, player2;
 	player1.skor = 0;
 	player2.skor = 0;
-	display_nama(&player1, &player2);
-	pilih_papan(&ukuran);
-	switch(ukuran){
-		case 1:
-			pilihan_papan = 3;
-			break;
-		case 2:
-			pilihan_papan = 5;
-			break;
-		case 3:
-			pilihan_papan = 7;
-			break;
-		 default:
-		 	printf("\t\t PILIHANMU TIDAK TEPAT, COBA MASUKAN KEMBALI!!!");
-      	 	system("pause");
-      	 	pilih_papan(&ukuran);
-		}
+	display_nama();
+	scanf("%s", &player1.nama);
+	printf("\n\t\t     Player 2 :");
+	scanf("%s", &player2.nama);
+	do{
+	display_arena();
+	pilihan_papan = memilih_opsi_papan();
+	}	while (pilihan_papan == 0);
 	mengosongkan_papan(pilihan_papan);
 	while (!cek_papan(pilihan_papan)) {
 		system("cls");
@@ -348,16 +318,30 @@ void skuy_main(){
 			}
 		}
 	}
-	tampilan_akhir(player1, player2);
+	hasil = membandingkan_nilai(player1, player2);
+	switch(hasil){
+		case 0:
+		display_draw();
+		scanf("%d", &opsi_udahan);
+		cek_opsi_udahan(opsi_udahan);
+		case 1:
+		display_menang(player1);
+		scanf("%d", &opsi_udahan);
+		cek_opsi_udahan(opsi_udahan);
+		case 2:
+		display_menang(player2);
+		scanf("%d", &opsi_udahan);
+		cek_opsi_udahan(opsi_udahan);
+		}
 }
 
 /*Deskripsi Modul
 Prosedure
-//Modul untuk menampilkan tampilan menu Nama dan membaca nama player 1 dan player 2
+//Modul untuk menampilkan tampilan menu nama player 
 I.S : Menu tampilan Nama belum tampil
-F.S : Menu tampilan nama tampil dan nama kedua pemain sudah terbaca
+F.S : Menu tampilan nama tampil 
 =========================================================================================*/
-void display_nama(Pemain *player1, Pemain *player2) {
+void display_nama() {
 	system("cls");
 	system("color E0");
 	printf("\n\n\n\n\n\n");
@@ -373,18 +357,16 @@ void display_nama(Pemain *player1, Pemain *player2) {
 	printf("\t\t\xb3\t      **      **** **           ** **     **     ** **           **           \xb3\n");
     printf("\t\t\xb3                                                                                     \xb3\n");
     printf("\t\t\xb3_____________________________________________________________________________________\xb3\n\n");
-    printf("\t\t     Player 1 :"); scanf("%s", &player1->nama); 
-    printf("\t\t     Player 2 :"); scanf("%s", &player2->nama); 
+    printf("\t\t     Player 1 :");
 }
 
 /*Deskripsi Modul
 Prosedure
-Menampilkan UI Tata Cara Bermain dan membaca opsi tutor untuk kembali ke menu awal
+Menampilkan UI Tata Cara Bermain 
 I.S : UI Tata Cara Bermain belum tampil
-F.S : UI Tata Cara bermain tampil dan opsi untuk kembali terbaca
+F.S : UI Tata Cara bermain tampil 
 =========================================================================================*/
-void display_tutor(int *opsi_tutor, int *opsi){
-	opsi=0;
+void display_tutor(){
 	system("cls");
 	system("color E0");
 	printf("\n\n\n\n\n\n");
@@ -406,16 +388,16 @@ void display_tutor(int *opsi_tutor, int *opsi){
     printf("\t\t\xb3 7.Jika skor kedua player sama, maka permainan akan dinyatakan seri.                 \xb3\n");
     printf("\t\t\xb3\t\t\t                                                              \xb3\n");
     printf("\t\t\xb3_____________________________________________________________________________________\xb3\n\n");
-    printf("\t\t Pilih angka berapa saja dan enter untuk kembali ke menu awal : ");		scanf("%d", &*opsi_tutor);
+    printf("\t\t Pilih angka berapa saja dan enter untuk kembali ke menu awal : ");	
 }
 
 /*Deskripsi Modul
 Prosedure
-Menampilkan UI keluar jika pemain memilih untuk keluar permainan dan membaca opsi keluar
+Menampilkan UI keluar 
 I.S : Menu tampilan keluar belum tampil
-F.S : Menu tampilan keluar tampil dan opsi udahan terbaca
+F.S : Menu tampilan keluar tampil di layar
 =========================================================================================*/
-void display_udahan(int *opsi_udahan){
+void display_udahan(){
 	system("cls");
 	system("color E0");
 	printf("\n\n\n\n\n\n");
@@ -432,61 +414,18 @@ void display_udahan(int *opsi_udahan){
     printf("\t\t\xb3_____________________________________________________________________________________\xb3\n");
     printf("\t\t\xb3\t\t\t\t\t                                              \xb3\n");
     printf("\t\t\xb3    [1] GA JADI DEH                                                                  \xb3\n");
-    printf("\t\t\xb3    [2] YAKIN                                                                        \xb3\n");
+    printf("\t\t\xb3    [Angka berapa saja selain 1] YAKIN                                               \xb3\n");
     printf("\t\t\xb3_____________________________________________________________________________________\xb3\n\n");
-  	printf("\t\t MAU APA? : "); scanf("%d", &*opsi_udahan);
+  	printf("\t\t MAU APA? : ");
 }
 
 /*Deskripsi Modul
 Prosedure
-Modul untuk memilih tampilan akhir yang tepat (menang atau draw)
-I.S : Permainan belum ada hasil akhirnya
-F.S : Permainan diketahui hasil akhirnya dan tampilan hasil akhir yang sesuai akan muncul pada layar
-=========================================================================================*/
-void tampilan_akhir(Pemain player1, Pemain player2){
-	int opsi_udahan;
-	system("cls");
-	system("color E0");
-	if(player1.skor == player2.skor ){
-		display_draw(&opsi_udahan);
-		switch(opsi_udahan){
-   				case 1:	
-   				main();
-   					break;
-   				default:
-   				exit(0);
-   					break;
-				}
-	} else if(player1.skor > player2.skor){
-		display_menang(player1, &opsi_udahan);
-		switch(opsi_udahan){
-   				case 1:	
-   				main();
-   					break;
-   				default:
-   				exit(0);
-   					break;
-				}
-	} else if(player1.skor < player2.skor){
-		display_menang(player2, &opsi_udahan);
-		switch(opsi_udahan){
-   				case 1:	
-   				main();
-   					break;
-   				default:
-   				exit(0);
-   					break;
-				}
-	}
-}
-
-/*Deskripsi Modul
-Prosedure
-Menampilkan UI memilih papan dimensi permainan dan membaca opsi ukuran papan
+Menampilkan UI memilih papan dimensi permainan
 I.S : Tampilan Menu Memilih Papan belum muncul ke layar
-F.S : Tampilan Menu memilih papan tampil di layar dan pilihan ukuran papan terbaca 
+F.S : Tampilan Menu memilih papan tampil di layar
 =========================================================================================*/
-void pilih_papan(int *ukuran){
+void display_arena(){
 	system("cls");
 	system("color E0");
 	printf("\n\n\n\n\n\n");
@@ -506,13 +445,13 @@ void pilih_papan(int *ukuran){
     printf("\t\t\xb3    [2] 5 x 5                                                                        \xb3\n");
     printf("\t\t\xb3    [3] 7 x 7                                                                        \xb3\n");
     printf("\t\t\xb3_____________________________________________________________________________________\xb3\n\n");
-    printf("\t\t Mau Pilih Yang Mana Nih? : "); scanf("%d",&*ukuran);
+    printf("\t\t Mau Pilih Yang Mana Nih? : "); 
     
 }
 
 /*Deskripsi Modul
 Prosedure
-Modul untuk mengisi papan dengan space (papan tidak emiliki isi)
+Modul untuk mengisi papan dengan space (papan tidak memiliki isi)
 I.S : Isi dari papan belum diketahui
 F.S : Papan terisi dengan space
 =========================================================================================*/
@@ -595,7 +534,7 @@ void papan_skor(Pemain player1, Pemain player2) {
 
 /*Deskripsi Modul
 Prosedure
-Membuat dan menampilkan papan permainan sesuai dengan papan dimensi yang dipilih(udah)
+Membuat dan menampilkan papan permainan sesuai dengan papan dimensi yang dipilih
 I.S : gambar papan permainan belum tampil pada layar
 F.S : gambar papan permainan sudah tampil pada layar
 =========================================================================================*/
@@ -718,11 +657,11 @@ int cari_sos(){
 
 /*Deskripsi Modul
 Prosedure
-Menampilkan Tampilan Menang pada layar dan membaca opsi udahan
+Menampilkan Tampilan Menang pada layar 
 I.S : Tampilan Menang belum muncul ke layar
-F.S : Tampilan Menang tampil di layar dan pilihan opsi udahan terbaca 
+F.S : Tampilan Menang tampil di layar 
 =========================================================================================*/
-void display_menang(Pemain player, int *opsi_udahan)
+void display_menang(Pemain player)
 {	system("cls");
 	system("color E0");
 	printf("\n\n\n\n\n\n");
@@ -742,18 +681,18 @@ void display_menang(Pemain player, int *opsi_udahan)
     printf("\t\t _____________________________________________________________________________________   \n");
 	printf("\t\t\xb3\t\t\t\t\t                                              \xb3\n");
     printf("\t\t\xb3    [1] MAIN LAGI                                                                    \xb3\n");
-    printf("\t\t\xb3    [2] QUIT GAME                                                                    \xb3\n");
+    printf("\t\t\xb3    [Angka berapa saja selain 1] YAKIN                                               \xb3\n");
     printf("\t\t\xb3_____________________________________________________________________________________\xb3\n\n");
-printf("\t\t MAU APA? : ") ; scanf("%d", &*opsi_udahan);
+printf("\t\t MAU APA? : ") ;
 }
 
 /*Deskripsi Modul
 Prosedure
-Menampilkan Tampilan draw pada layar dan membaca opsi udahan
+Menampilkan Tampilan draw pada layar
 I.S : Tampilan Draw belum muncul ke layar
-F.S : Tampilan draw tampil di layar dan pilihan opsi udahan terbaca
+F.S : Tampilan draw tampil di layar
 =========================================================================================*/
-void display_draw(int *opsi_udahan)
+void display_draw()
 {	system("cls");
 	system("color E0");
 	printf("\n\n\n\n\n\n");
@@ -770,7 +709,121 @@ void display_draw(int *opsi_udahan)
     printf("\t\t\xb3_____________________________________________________________________________________\xb3\n");
     printf("\t\t\xb3\t\t\t\t\t                                              \xb3\n");
     printf("\t\t\xb3    [1] MAIN LAGI                                                                    \xb3\n");
-    printf("\t\t\xb3    [2] QUIT GAME                                                                    \xb3\n");
+    printf("\t\t\xb3    [Angka berapa saja selain 1] YAKIN                                               \xb3\n");
     printf("\t\t\xb3_____________________________________________________________________________________\xb3\n\n");
-  	printf("\t\t MAU APA? : "); scanf("%d", &*opsi_udahan);
+  	printf("\t\t MAU APA? : "); 
 }
+
+/*Deskripsi Modul
+Procedure
+Modul untuk memilih opsi dari menu utama untuk menuju fitur atau pilihan yang diinginkan 
+I.S : Pilihan untuk menu berikutnya belum terpilih
+F.S : Opsi terpilih dan melanjutkan sesuai pilihan yang diinginkan
+=========================================================================================*/
+void memilih_opsi_menu()
+{   int opsi;
+	int opsi_tutor;
+	int opsi_udahan;
+	do{
+		scanf(" %d",&opsi); 
+		switch(opsi){
+   			case 1:
+   				skuy_main();
+   				break;
+        	case 2:
+   				display_tutor();
+				opsi = 0;   
+				scanf("%d", &opsi_tutor);				
+   				switch(opsi_tutor){
+			default:
+	      		menu_awal();
+	      		memilih_opsi_menu();
+	     			break;
+				}
+   				break;
+			case 3:
+   				display_udahan();
+   				scanf("%d", &opsi_udahan);
+   				switch(opsi_udahan){
+   					case 1:
+   						menu_awal();
+   						memilih_opsi_menu();
+   						break;
+   					default:
+   						exit(0);
+				   }	
+   				break;	
+	   		 default:
+   			 	printf("\t\t\t\t PILIHANMU TIDAK TEPAT, Klik Enter Untuk Mengulang!");
+      		 	getch();
+      		 	menu_awal();
+      		 	memilih_opsi_menu();
+			}
+	} while (opsi != 1 || opsi != 2 || opsi != 3);
+	exit(0);
+}
+
+/*Deskripsi Modul
+Function
+//Modul untuk memilih papan sesuai dengan dimensi papan yang diinginkan
+I.S : Dimensi papan belum terpilih
+F.S : Dimensi papan sudah terpilih
+=========================================================================================*/
+int memilih_opsi_papan()
+{	int ukuran; 
+	scanf("%d",&ukuran);
+	switch(ukuran){
+		case 1:
+			return 3;
+		case 2:
+			return 5;
+		case 3:
+			return 7;
+		 default:	
+		 	printf("\t\t\t\t PILIHANMU TIDAK TEPAT, Klik Enter Untuk Mengulang!");
+		 	getch();
+		 	return 0;
+      	 	break;
+		}
+}
+
+/*Deskripsi Modul
+Funtion
+//Modul untuk membandingkan skor hasil permainan untuk menentukkan pemenang
+I.S : Skor hasil permainan belum dibandingkan
+F.S : Skor hasil permainan sudah dibandingkan dan hasil permainan dapat ditentukkan
+=========================================================================================*/
+int membandingkan_nilai(Pemain player1, Pemain player2)
+{ 	system("cls");
+	system("color E0");
+	if(player1.skor == player2.skor ){
+		return 0;
+	} else if (player1.skor > player2.skor){
+		return 1;
+	} else if (player1.skor < player2.skor){
+		return 2;
+  	}
+}
+
+/*Deskripsi Modul
+Procedure
+//Modul untuk memilih opsi udahan sesuai dengan hasil bacaan "opsi_udahan"
+I.S : Pilihan untuk menuju opsi berikutnya belum disesuaikan
+F.S : Program melanjutkan ke modul yang dipilih (keluar permainan atau kembali ke menu awal) 
+=========================================================================================*/
+void cek_opsi_udahan(int opsi_udahan)
+{   switch(opsi_udahan){
+   		case 1:	
+  		main();
+   			break;
+  		default:
+  		exit(0);
+   			break;
+	}
+}
+
+
+
+
+
+
